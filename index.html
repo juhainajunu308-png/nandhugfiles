@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weavedphotons — Cinematic Wedding Photography</title>
+  <meta name="description" content="Weavedphotons — premium cinematic wedding & event photography. Capturing timeless love stories with dark, luxurious, and editorial artistry.">
+  <meta name="keywords" content="wedding photography, cinematic, luxury, editorial, event photography, weavedphotons">
+  <meta name="author" content="Weavedphotons">
+  <meta property="og:title" content="Weavedphotons — Cinematic Wedding Photography">
+  <meta property="og:description" content="Timeless love stories captured with dark luxurious artistry.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
+  <!-- UPDATE: Replace content URL with your full domain after deployment e.g. https://yourdomain.com/assets/hero_main.jpg -->
+  <meta property="og:image" content="https://yourdomain.com/assets/hero_main.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ Preloader ═══ -->
+<div id="preloader">
+  <div class="preloader-logo">Weavedphotons</div>
+  <div class="preloader-line"></div>
+</div>
+
+<!-- ═══ Cursor Spotlight ═══ -->
+<div id="cursor-glow"></div>
+
+<!-- ═══ Page Transition ═══ -->
+<div class="page-transition" id="page-transition">
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+</div>
+
+<!-- ═══ Lightbox ═══ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close">✕</div>
+  <img src="" alt="Enlarged photo" id="lightbox-img">
+</div>
+
+<!-- ═══ Client Gallery Modal ═══ -->
+<div class="gallery-modal" id="gallery-modal">
+  <div class="gallery-modal-close">✕</div>
+  <div class="gallery-modal-box">
+    <div id="gallery-modal-form">
+      <h3>Access Your Gallery</h3>
+      <p>Enter your username and access code shared with you to view your private collection.</p>
+      <input type="text" class="gallery-modal-input" id="gallery-username" placeholder="Username" autocomplete="off" style="margin-bottom:12px;letter-spacing:normal;">
+      <input type="password" class="gallery-modal-input" id="gallery-password" placeholder="Access code" autocomplete="off">
+      <div class="gallery-modal-error" id="gallery-error"></div>
+      <button class="btn-primary magnetic" id="gallery-submit" style="width:100%;justify-content:center;"><span>Unlock Gallery</span></button>
+    </div>
+    <div class="gallery-modal-success" id="gallery-success">
+      <h3 id="gallery-welcome">✦ Welcome Back</h3>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;">Your private gallery is ready. Here's a preview:</p>
+      <div class="gallery-modal-gallery" id="gallery-photos">
+        <!-- Populated dynamically -->
+      </div>
+      <button class="gallery-logout-btn" id="gallery-logout">← Try Different Login</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ Sound Toggle ═══ -->
+<button class="sound-toggle" id="sound-toggle" aria-label="Toggle ambient music">
+  <div class="bars">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</button>
+
+<!-- ═══ WhatsApp CTA ═══ -->
+<!-- UPDATE: Replace 919876543210 with your actual WhatsApp number (country code + number, no + sign, no spaces) -->
+<a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ═══ Mobile Menu ═══ -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#stories" class="mobile-link">Stories</a>
+  <a href="#gallery" class="mobile-link">Portfolio</a>
+  <a href="#about" class="mobile-link">Story</a>
+  <a href="#testimonials" class="mobile-link">Love Notes</a>
+  <a href="#blog" class="mobile-link">Journal</a>
+  <a href="#client-gallery" class="mobile-link">Client Access</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ═══ Navigation ═══ -->
+<nav class="nav" id="navbar">
+  <a href="#" class="nav-brand">Weavedphotons</a>
+  <ul class="nav-links">
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#gallery">Portfolio</a></li>
+    <li><a href="#about">Story</a></li>
+    <li><a href="#testimonials">Love Notes</a></li>
+    <li><a href="#blog">Journal</a></li>
+    <li><a href="#client-gallery">Client Access</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta magnetic"><span>Book Now</span></a>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ Hero (Interactive Camera Console) ═══ -->
+<section class="hero" id="hero">
+  <!-- Static Ambient Background Glow — locked to hero photo -->
+  <div class="hero-bg-blur" id="hero-bg-blur" style="background-image: url('assets/hero_main.jpg');"></div>
+
+  <!-- Interactive Lens Flare Canvas -->
+  <canvas id="lens-flare-canvas"></canvas>
+
+  <!-- Vertical Exposure Dial -->
+  <div class="ev-dial-wrapper">
+    <div class="ev-label">EV INDEX</div>
+    <div class="ev-track">
+      <div class="ev-ticks">
+        <div class="ev-tick" data-val="+2.0"><span>+2.0</span></div>
+        <div class="ev-tick" data-val="+1.5"></div>
+        <div class="ev-tick" data-val="+1.0"><span>+1.0</span></div>
+        <div class="ev-tick" data-val="+0.5"></div>
+        <div class="ev-tick" data-val="0.0"><span>0.0</span></div>
+        <div class="ev-tick" data-val="-0.5"></div>
+        <div class="ev-tick" data-val="-1.0"><span>-1.0</span></div>
+        <div class="ev-tick" data-val="-1.5"></div>
+        <div class="ev-tick" data-val="-2.0"><span>-2.0</span></div>
+      </div>
+      <div class="ev-handle-drag" id="ev-handle">
+        <div class="ev-handle-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single Hero Full-Bleed Image -->
+  <div class="filmstrip-gate">
+    <div class="filmstrip-track" id="filmstrip-track">
+      <div class="filmstrip-slide active">
+        <img src="assets/hero_main.jpg" alt="Fine art portrait — Weavedphotons" style="object-position: center 20%;">
+      </div>
+    </div>
+    <div class="filmstrip-overlay"></div>
+  </div>
+
+  <!-- Geographical & Technical Columns -->
+  <div class="tech-sidebar">
+    <div class="tech-col">
+      <div class="tech-item">LOC // 11.2588° N, 75.7804° E</div>
+      <div class="tech-item">APERTURE // f/1.2</div>
+      <div class="tech-item">ISO // 64</div>
+    </div>
+    <div class="tech-col right-align">
+      <div class="tech-item" id="tech-fps">FPS // 60.0</div>
+      <div class="tech-item">SHUTTER // 1/250S</div>
+      <div class="tech-item">FOCAL // 85MM</div>
+    </div>
+  </div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Intimate. Raw. Authentic.</p>
+    <h1 class="hero-title">Where Light Meets <em>Love</em></h1>
+    <p class="hero-subtitle">Crafting cinematic narratives of your most cherished celebrations — timeless, luxurious, and uniquely yours.</p>
+    <div class="hero-btns">
+      <a href="#gallery" class="btn-primary magnetic"><span>View Portfolio</span></a>
+      <a href="#contact" class="btn-outline magnetic"><span>Get in Touch</span></a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ Horizontal Scroll Stories ═══ -->
+<section id="stories">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Featured Weddings</p>
+    <h2 class="section-title">Love Stories We've Told</h2>
+    <p class="section-desc">Swipe through our most cherished celebrations — each one a cinematic chapter in an extraordinary love story.</p>
+  </div>
+  <div class="stories-container">
+    <div class="stories-track" id="stories-track">
+      <div class="story-card reveal-scale" data-delay="0">
+        <img class="story-card-img" src="assets/wedding_bride_bamboo.jpg" alt="Aditi & Rahul wedding story">
+        <div class="story-card-content">
+          <span class="story-card-tag">Traditional Heritage</span>
+          <h3 class="story-card-title">Aditi & Rahul</h3>
+          <p class="story-card-location">Kochi, Kerala · Summer 2025</p>
+        </div>
+      </div>
+      <div class="story-card reveal-scale" data-delay="100">
+        <img class="story-card-img" src="assets/wedding_intimate_bw.jpg" alt="Aisha & Raj wedding story">
+        <div class="story-card-content">
+          <span class="story-card-tag">Intimate Monochrome</span>
+          <h3 class="story-card-title">Aisha & Raj</h3>
+          <p class="story-card-location">Calicut, Kerala · Winter 2024</p>
+        </div>
+      </div>
+      <div class="story-card reveal-scale" data-delay="200">
+        <img class="story-card-img" src="assets/couple_beach.jpg" alt="Riya & Arjun wedding story">
+        <div class="story-card-content">
+          <span class="story-card-tag">Sunset Coastal</span>
+          <h3 class="story-card-title">Riya & Arjun</h3>
+          <p class="story-card-location">Varkala, Kerala · Autumn 2025</p>
+        </div>
+      </div>
+      <div class="story-card reveal-scale" data-delay="300">
+        <img class="story-card-img" src="assets/couple_editorial_urban.jpg" alt="Neha & Siddharth wedding story">
+        <div class="story-card-content">
+          <span class="story-card-tag">Urban Editorial</span>
+          <h3 class="story-card-title">Neha & Siddharth</h3>
+          <p class="story-card-location">Fort Kochi, Kerala · Spring 2025</p>
+        </div>
+      </div>
+      <div class="story-card reveal-scale" data-delay="400">
+        <img class="story-card-img" src="assets/wedding_stage_dance.jpg" alt="Meera & Vikram wedding story">
+        <div class="story-card-content">
+          <span class="story-card-tag">Grand Reception</span>
+          <h3 class="story-card-title">Meera & Vikram</h3>
+          <p class="story-card-location">Bangalore, India · Winter 2025</p>
+        </div>
+      </div>
+      <div class="story-card reveal-scale" data-delay="500">
+        <img class="story-card-img" src="assets/hero_portrait_3.jpg" alt="Anjali & Dev wedding story">
+        <div class="story-card-content">
+          <span class="story-card-tag">Fine Art Editorial</span>
+          <h3 class="story-card-title">Anjali & Dev</h3>
+          <p class="story-card-location">Chennai, India · Summer 2024</p>
+        </div>
+      </div>
+    </div>
+    <div class="stories-nav">
+      <button id="stories-prev" aria-label="Previous story">←</button>
+      <button id="stories-next" aria-label="Next story">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Gallery ═══ -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Selected Works</p>
+    <h2 class="section-title">A Curated Collection</h2>
+    <p class="section-desc">Every frame tells a story. Explore moments frozen in time — raw emotions, intimate details, and grand celebrations.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal-scale" data-delay="0">
+      <img src="assets/wedding_bride_bamboo.jpg" alt="Golden hour bride" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h4>Golden Hour Bride</h4>
+        <p>Wedding Portrait</p>
+      </div>
+    </div>
+    <div class="gallery-item reveal-scale" data-delay="100">
+      <img src="assets/wedding_intimate_bw.jpg" alt="Intimate monochrome embrace" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h4>Silent Promise</h4>
+        <p>Intimate Monochrome</p>
+      </div>
+    </div>
+    <div class="gallery-item reveal-scale" data-delay="200">
+      <img src="assets/couple_beach.jpg" alt="Coastal romance at sunset" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h4>Coastal Breeze</h4>
+        <p>Post-Wedding</p>
+      </div>
+    </div>
+    <div class="gallery-item reveal-scale" data-delay="0">
+      <img src="assets/couple_editorial_urban.jpg" alt="Urban couple editorial" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h4>Urban Editorial</h4>
+        <p>Couple Session</p>
+      </div>
+    </div>
+    <div class="gallery-item reveal-scale" data-delay="100">
+      <img src="assets/wedding_stage_dance.jpg" alt="Grand stage reception dance" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h4>First Dance</h4>
+        <p>Reception</p>
+      </div>
+    </div>
+    <div class="gallery-item reveal-scale" data-delay="200">
+      <img src="assets/hero_portrait_1.jpg" alt="Fine art bridal portrait" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h4>Elegance Unveiled</h4>
+        <p>Bridal Portrait</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ About ═══ -->
+<section id="about">
+  <div class="about-visual reveal-left">
+    <div class="about-img">
+      <img src="assets/hero_portrait_2.jpg" alt="Weavedphotons photographer at work">
+    </div>
+    <div class="about-frame"></div>
+  </div>
+  <div class="about-content reveal-right">
+    <p class="section-tag">Our Story</p>
+    <h2 class="section-title">Crafting Timeless Narratives</h2>
+    <p class="section-desc">We believe every love story deserves to be told with the same depth and emotion as a cinematic masterpiece. With an eye for dramatic light and an instinct for genuine emotion, we transform fleeting moments into heirloom art.</p>
+    <p class="section-desc" style="margin-top: 16px;">Our approach blends editorial finesse with documentary authenticity — creating images that don't just capture what happened, but how it <em>felt</em>.</p>
+    <div class="about-stats">
+      <div class="stat">
+        <h3>200+</h3>
+        <p>Weddings Shot</p>
+      </div>
+      <div class="stat">
+        <h3>7</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat">
+        <h3>3</h3>
+        <p>Countries Covered</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Testimonials ═══ -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Love Notes</p>
+    <h2 class="section-title">What Our Couples Say</h2>
+  </div>
+  <div class="testimonials-carousel reveal">
+    <div class="testimonial-card active" id="testimonial-0">
+      <p class="testimonial-quote">Honestly, we were a little nervous about how the photos would turn out — our venue in Kozhikode didn't have much fancy lighting. But when we saw the album, I cried again. The way he captured my mother's face during the nikaah, the light through the courtyard — it felt like a dream we could hold in our hands.</p>
+      <p class="testimonial-author">Fathima & Arjun</p>
+      <p class="testimonial-role">Kozhikode, Kerala — February 2025</p>
+    </div>
+    <div class="testimonial-card" id="testimonial-1">
+      <p class="testimonial-quote">Our friends from Thrissur still ask us who took our wedding photos. The sunset shots at the paddy field, the candid of my paapa crying — none of that felt posed. It just happened naturally and somehow he was always in the right place. We didn't even realise we were being photographed half the time. That's the magic.</p>
+      <p class="testimonial-author">Devika & Sreekanth</p>
+      <p class="testimonial-role">Thrissur, Kerala — November 2024</p>
+    </div>
+    <div class="testimonial-card" id="testimonial-2">
+      <p class="testimonial-quote">We almost skipped professional photography to save budget. My amma convinced us otherwise and I'm so grateful she did. Our entire family — from Kochi to Dubai — has that one black and white photo of us framed at home now. He found something in us we didn't even know was there.</p>
+      <p class="testimonial-author">Neethu & Vishnu</p>
+      <p class="testimonial-role">Kochi, Kerala — January 2025</p>
+    </div>
+    <div class="testimonial-dots">
+      <div class="testimonial-dot active" data-index="0"></div>
+      <div class="testimonial-dot" data-index="1"></div>
+      <div class="testimonial-dot" data-index="2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Pricing ═══ -->
+<section id="pricing">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Investment</p>
+    <h2 class="section-title">Your Story, Your Package</h2>
+    <p class="section-desc">Every wedding is unique. We craft bespoke packages tailored to your vision, your venue, and your dream day.</p>
+  </div>
+  <div class="quote-card reveal-scale">
+    <div class="quote-icon">✦</div>
+    <h3>Bespoke Quote</h3>
+    <p>Tell us about your celebration and we'll design a photography experience as unique as your love story. No templates — just a custom plan built around you.</p>
+    <div class="quote-features">
+      <div class="quote-feature"><span class="check">✓</span> Full-day coverage</div>
+      <div class="quote-feature"><span class="check">✓</span> Second shooter included</div>
+      <div class="quote-feature"><span class="check">✓</span> Cinematic color grading</div>
+      <div class="quote-feature"><span class="check">✓</span> High-res digital gallery</div>
+      <div class="quote-feature"><span class="check">✓</span> Fine art album design</div>
+      <div class="quote-feature"><span class="check">✓</span> Engagement session</div>
+      <div class="quote-feature"><span class="check">✓</span> Worldwide destination</div>
+      <div class="quote-feature"><span class="check">✓</span> Rush delivery available</div>
+    </div>
+    <a href="#contact" class="btn-primary magnetic"><span>Get Your Custom Quote</span></a>
+  </div>
+</section>
+
+<!-- ═══ Blog / Journal ═══ -->
+<section id="blog">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Journal</p>
+    <h2 class="section-title">Behind the Lens</h2>
+    <p class="section-desc">Stories, insights, and inspiration from the world of cinematic wedding photography.</p>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card reveal-scale" data-delay="0">
+      <img class="blog-card-img" src="assets/wedding_bride_bamboo.jpg" alt="Golden hour photography tips" loading="lazy">
+      <div class="blog-card-body">
+        <p class="blog-card-date">June 28, 2025</p>
+        <h3 class="blog-card-title">Chasing Golden Hour: The Art of Timing Your Wedding Portraits</h3>
+        <p class="blog-card-excerpt">Why the 20 minutes before sunset can transform your wedding portraits from beautiful to breathtaking — and how we plan for it every time.</p>
+        <span class="blog-card-link">Read Story →</span>
+      </div>
+    </article>
+    <article class="blog-card reveal-scale" data-delay="150">
+      <img class="blog-card-img" src="assets/couple_beach.jpg" alt="Destination wedding planning" loading="lazy">
+      <div class="blog-card-body">
+        <p class="blog-card-date">May 15, 2025</p>
+        <h3 class="blog-card-title">Coastal Weddings: A Photographer's Guide to Kerala Beaches</h3>
+        <p class="blog-card-excerpt">From Varkala cliffs to Kovalam shores, discover why Kerala's coastline creates some of the most spectacular wedding backdrops in India.</p>
+        <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="blog-card-link">See More →</a>
+      </div>
+    </article>
+    <article class="blog-card reveal-scale" data-delay="300">
+      <img class="blog-card-img" src="assets/wedding_intimate_bw.jpg" alt="Choosing your wedding photographer" loading="lazy">
+      <div class="blog-card-body">
+        <p class="blog-card-date">April 3, 2025</p>
+        <h3 class="blog-card-title">How to Choose a Wedding Photographer Who Truly Gets You</h3>
+        <p class="blog-card-excerpt">Beyond portfolios and packages — the questions you should be asking and the red flags you should watch for.</p>
+        <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="blog-card-link">See More →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══ Client Gallery Access ═══ -->
+<section id="client-gallery">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Private Access</p>
+    <h2 class="section-title">Client Galleries</h2>
+  </div>
+  <div class="client-gallery-cta reveal-scale">
+    <div class="client-gallery-lock">🔒</div>
+    <p>Your private gallery awaits. Use the access code shared with you to unlock, view, and download your full wedding collection in stunning high resolution.</p>
+    <button class="btn-primary magnetic" id="open-gallery-modal"><span>Access Your Gallery</span></button>
+  </div>
+</section>
+
+<!-- ═══ Instagram ═══ -->
+<section id="instagram">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag"><a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">@high_click___</a></p>
+    <h2 class="section-title">Follow the Journey</h2>
+  </div>
+  <div class="insta-grid">
+    <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="insta-item"><img src="assets/hero_portrait_1.jpg" alt="Instagram post" loading="lazy"></a>
+    <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="insta-item"><img src="assets/wedding_bride_bamboo.jpg" alt="Instagram post" loading="lazy"></a>
+    <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="insta-item"><img src="assets/wedding_intimate_bw.jpg" alt="Instagram post" loading="lazy"></a>
+    <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="insta-item"><img src="assets/couple_beach.jpg" alt="Instagram post" loading="lazy"></a>
+    <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="insta-item"><img src="assets/couple_editorial_urban.jpg" alt="Instagram post" loading="lazy"></a>
+    <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="insta-item"><img src="assets/wedding_stage_dance.jpg" alt="Instagram post" loading="lazy"></a>
+  </div>
+</section>
+
+<!-- ═══ Contact ═══ -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-divider"></div>
+    <p class="section-tag">Let's Create Together</p>
+    <h2 class="section-title">Start Your Story</h2>
+    <p class="section-desc">Ready to preserve your most precious moments? We'd love to hear about your celebration.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal-left">
+      <h3>Let's Talk About <em>Your Day</em></h3>
+      <p>We pour our heart into every wedding we photograph. Share your vision with us and let's craft something unforgettable together.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉</div>
+          <div class="contact-detail-text">
+            <h5>Email</h5>
+            <p>hello@weavedphotons.com</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✆</div>
+          <div class="contact-detail-text">
+            <h5>Phone</h5>
+            <p>+1 (555) 928-4670</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">◎</div>
+          <div class="contact-detail-text">
+            <h5>Based In</h5>
+            <p>Available Worldwide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal-right" id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Wedding Date</label>
+          <input type="date" id="date">
+        </div>
+        <div class="form-group">
+          <label for="venue">Venue / Location</label>
+          <input type="text" id="venue" placeholder="City, Country">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="event-type">Event Type</label>
+        <select id="event-type">
+          <option value="">Select event type</option>
+          <option value="wedding">Wedding</option>
+          <option value="engagement">Engagement Session</option>
+          <option value="elopement">Elopement</option>
+          <option value="corporate">Corporate Event</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us Your Story</label>
+        <textarea id="message" placeholder="Share the details of your dream day — we'd love to know how you met, your vision, and what matters most to you..."></textarea>
+      </div>
+      <button type="submit" class="form-submit magnetic">Send Inquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ Footer ═══ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Weavedphotons</div>
+      <p class="footer-tagline">Weaving light into timeless love stories. Premium cinematic wedding photography.</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/high_click___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link magnetic" aria-label="Instagram">𝕀𝔾</a>
+      <a href="#" class="social-link magnetic" aria-label="Pinterest">ℙ</a>
+      <a href="#" class="social-link magnetic" aria-label="Facebook">𝔽</a>
+      <a href="#" class="social-link magnetic" aria-label="YouTube">▶</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span id="footer-year">2026</span> Weavedphotons. All rights reserved.</p>
+    <p>Crafted with passion & precision</p>
+  </div>
+</footer>
+
+<!-- ═══ Ambient Audio (royalty-free piano loop) ═══ -->
+<audio id="ambient-audio" loop preload="none">
+  <source src="https://cdn.pixabay.com/audio/2024/11/29/audio_d4f664c8c3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- GSAP + GSAP Draggable from CDNJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════
+   WEAVEDPHOTONS — Interactive Engine V2
+   ═══════════════════════════════════════════ */
+
+(() => {
+  'use strict';
+
+  // ─── Preloader ───
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hide');
+    }, 1800);
+  });
+
+  // ─── Dynamic Exposure Index Logic ───
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function interpolateColor(color1, color2, factor) {
+    const r1 = parseInt(color1.substring(1, 3), 16);
+    const g1 = parseInt(color1.substring(3, 5), 16);
+    const b1 = parseInt(color1.substring(5, 7), 16);
+
+    const r2 = parseInt(color2.substring(1, 3), 16);
+    const g2 = parseInt(color2.substring(3, 5), 16);
+    const b2 = parseInt(color2.substring(5, 7), 16);
+
+    const r = Math.round(lerp(r1, r2, factor));
+    const g = Math.round(lerp(g1, g2, factor));
+    const b = Math.round(lerp(b1, b2, factor));
+
+    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+  }
+
+  function updateExposure(exp) {
+    const root = document.documentElement;
+    root.style.setProperty('--exposure', exp);
+    
+    // adjust opacity and brightness
+    const opacity = Math.min(1.0, Math.max(0.2, exp * 0.8));
+    root.style.setProperty('--hero-bg-opacity', opacity);
+    root.style.setProperty('--hero-brightness', `${exp * 100}%`);
+
+    // color temperature shift: warm gold vs bronze/charcoal
+    let accentGold, textBloom;
+    if (exp < 1.0) {
+      const t = (exp - 0.2) / 0.8;
+      accentGold = interpolateColor('#5d401e', '#c9a84c', t);
+      textBloom = `0 0 ${t * 15}px rgba(201, 168, 76, ${t * 0.3})`;
+    } else {
+      const t = (exp - 1.0) / 1.0;
+      accentGold = interpolateColor('#c9a84c', '#fff0d1', t);
+      textBloom = `0 0 ${15 + t * 20}px rgba(255, 240, 209, ${0.3 + t * 0.5})`;
+    }
+    root.style.setProperty('--gold-exposed', accentGold);
+    root.style.setProperty('--gold-bloom', textBloom);
+  }
+
+  // ─── Initialize GSAP Draggable Exposure Dial ───
+  gsap.registerPlugin(Draggable);
+
+  const evTrack = document.querySelector('.ev-track');
+  const evHandle = document.getElementById('ev-handle');
+  const trackHeight = 320;
+
+  if (evTrack && evHandle) {
+    // Initial positioning at the center (0.0 EV index = 1.0 exposure factor)
+    gsap.set(evHandle, { y: trackHeight / 2 });
+    updateExposure(1.0);
+
+    Draggable.create(evHandle, {
+      type: 'y',
+      bounds: { minY: 0, maxY: trackHeight },
+      onDrag: function() {
+        const yVal = this.y;
+        const half = trackHeight / 2;
+        let exposure = 1.0;
+        
+        if (yVal < half) {
+          const pct = yVal / half; // 1 to 0
+          exposure = 1.0 + (1 - pct) * 1.0; // 1.0 to 2.0
+        } else {
+          const pct = (yVal - half) / half; // 0 to 1
+          exposure = 1.0 - pct * 0.8; // 1.0 to 0.2
+        }
+        updateExposure(exposure);
+      }
+    });
+  }
+
+  // ─── Refractive Lens Flare Canvas Rendering ───
+  const canvas = document.getElementById('lens-flare-canvas');
+  let ctx = null;
+
+  if (canvas) {
+    ctx = canvas.getContext('2d');
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+  }
+
+  // Mouse Coordinates Tracking
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let targetX = mx, targetY = my;
+
+  document.addEventListener('mousemove', e => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  });
+
+  // ─── Live FPS & Render Ticker ───
+  let lastTime = performance.now();
+  let frameCount = 0;
+  const fpsEl = document.getElementById('tech-fps');
+
+  (function renderLoop() {
+    // Spring delay tracking
+    mx += (targetX - mx) * 0.08;
+    my += (targetY - my) * 0.08;
+
+    // Custom Spotlight cursor trail updating
+    const glow = document.getElementById('cursor-glow');
+    if (glow) {
+      glow.style.transform = `translate(${mx - 175}px, ${my - 175}px)`;
+    }
+
+    // Canvas rendering
+    if (canvas && ctx) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+
+      const dx = cx - mx;
+      const dy = cy - my;
+
+      const exp = parseFloat(document.documentElement.style.getPropertyValue('--exposure') || '1.0');
+
+      // Primary source glow
+      const mainGlow = ctx.createRadialGradient(mx, my, 0, mx, my, 180);
+      mainGlow.addColorStop(0, `rgba(255, 230, 180, ${0.12 * exp})`);
+      mainGlow.addColorStop(0.6, `rgba(251, 201, 76, ${0.02 * exp})`);
+      mainGlow.addColorStop(1, 'rgba(251, 201, 76, 0)');
+      ctx.fillStyle = mainGlow;
+      ctx.beginPath();
+      ctx.arc(mx, my, 180, 0, Math.PI * 2);
+      ctx.fill();
+
+      // volumetric gold light beams
+      const beamGrad = ctx.createLinearGradient(cx, cy, mx, my);
+      beamGrad.addColorStop(0, `rgba(201, 168, 76, ${0.03 * exp})`);
+      beamGrad.addColorStop(0.5, `rgba(201, 168, 76, ${0.01 * exp})`);
+      beamGrad.addColorStop(1, 'rgba(201, 168, 76, 0)');
+      ctx.strokeStyle = beamGrad;
+      ctx.lineWidth = 160;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(mx, my);
+      ctx.stroke();
+
+      // 6 refraction flare elements along the light axis
+      const flares = [
+        { offset: 0.25, radius: 45, color: 'rgba(201, 168, 76, 0.03)' },
+        { offset: 0.45, radius: 90, color: 'rgba(201, 168, 76, 0.015)' },
+        { offset: 0.75, radius: 30, color: 'rgba(150, 100, 50, 0.025)' },
+        { offset: -0.3, radius: 140, color: 'rgba(201, 168, 76, 0.01)' },
+        { offset: -0.6, radius: 70, color: 'rgba(200, 180, 120, 0.02)' },
+        { offset: -0.95, radius: 20, color: 'rgba(201, 168, 76, 0.04)' }
+      ];
+
+      flares.forEach(f => {
+        const fx = cx + dx * f.offset;
+        const fy = cy + dy * f.offset;
+
+        const radGrad = ctx.createRadialGradient(fx, fy, 0, fx, fy, f.radius);
+        radGrad.addColorStop(0, f.color.replace(/[\d.]+\)/, `${0.1 * exp})`));
+        radGrad.addColorStop(0.8, f.color.replace(/[\d.]+\)/, `${0.03 * exp})`));
+        radGrad.addColorStop(1, 'rgba(201, 168, 76, 0)');
+
+        ctx.fillStyle = radGrad;
+        ctx.beginPath();
+        ctx.arc(fx, fy, f.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = `rgba(201, 168, 76, ${0.012 * exp})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(fx, fy, f.radius, 0, Math.PI * 2);
+        ctx.stroke();
+      });
+    }
+
+    // Ticking FPS
+    frameCount++;
+    const now = performance.now();
+    if (now - lastTime >= 1000) {
+      const fps = (frameCount * 1000) / (now - lastTime);
+      if (fpsEl) fpsEl.textContent = `FPS // ${fps.toFixed(1)}`;
+      frameCount = 0;
+      lastTime = now;
+    }
+
+    requestAnimationFrame(renderLoop);
+  })();
+
+  // ─── Hero Parallax (single image) ───
+  const slides = document.querySelectorAll('.filmstrip-slide');
+  const heroEl = document.getElementById('hero');
+  if (heroEl && slides.length > 0) {
+    heroEl.addEventListener('mousemove', e => {
+      const rx = (e.clientX / window.innerWidth - 0.5) * 28;
+      const ry = (e.clientY / window.innerHeight - 0.5) * 28;
+      const img = slides[0].querySelector('img');
+      gsap.to(img, { x: rx, y: ry, duration: 1.2, ease: 'power2.out' });
+    });
+    heroEl.addEventListener('mouseleave', () => {
+      const img = slides[0].querySelector('img');
+      gsap.to(img, { x: 0, y: 0, duration: 1.5, ease: 'power3.out' });
+    });
+  }
+
+  // ─── Navbar Scroll ───
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  // ─── Hamburger ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ─── Sound Toggle ───
+  const soundBtn = document.getElementById('sound-toggle');
+  const audio = document.getElementById('ambient-audio');
+  let isPlaying = false;
+  soundBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      soundBtn.classList.remove('playing');
+    } else {
+      audio.volume = 0.3;
+      audio.play().catch(() => {});
+      soundBtn.classList.add('playing');
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // ─── 3D Tilt on Gallery Cards ───
+  document.querySelectorAll('.gallery-item').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 15}deg) rotateX(${-y * 15}deg) scale3d(1.03, 1.03, 1.03)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale3d(1, 1, 1)';
+    });
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // ─── Lightbox Close ───
+  const lightbox = document.getElementById('lightbox');
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+      document.getElementById('gallery-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ─── Magnetic Buttons ───
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // ─── Horizontal Stories Scroll ───
+  const track = document.getElementById('stories-track');
+  const prevBtn = document.getElementById('stories-prev');
+  const nextBtn = document.getElementById('stories-next');
+  const scrollAmt = 370;
+
+  if (prevBtn && nextBtn && track) {
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmt, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmt, behavior: 'smooth' });
+    });
+
+    // Drag to scroll
+    let isDragging = false, startX, scrollLeft;
+    track.addEventListener('mousedown', e => {
+      isDragging = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', () => isDragging = false);
+    track.addEventListener('mouseup', () => isDragging = false);
+    track.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
+
+  // ─── Testimonials Carousel ───
+  const cards = document.querySelectorAll('.testimonial-card');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  let activeTesti = 0;
+  function showTestimonial(idx) {
+    if (cards.length > 0 && dots.length > 0) {
+      cards.forEach(c => c.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      cards[idx].classList.add('active');
+      dots[idx].classList.add('active');
+      activeTesti = idx;
+    }
+  }
+  if (dots.length > 0) {
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => showTestimonial(+dot.dataset.index));
+    });
+    setInterval(() => showTestimonial((activeTesti + 1) % cards.length), 6000);
+  }
+
+  // ─── Client Gallery Modal ───
+  const galleryModal = document.getElementById('gallery-modal');
+  const galleryForm = document.getElementById('gallery-modal-form');
+  const gallerySuccess = document.getElementById('gallery-success');
+  const galleryUsername = document.getElementById('gallery-username');
+  const galleryInput = document.getElementById('gallery-password');
+  const galleryError = document.getElementById('gallery-error');
+
+  // Passwords encoded as base64 — prevents plain-text exposure in DevTools source view
+  const _d = s => atob(s);
+  const CLIENT_CREDENTIALS = {
+    'default': {
+      code: _d('d2VhdmVkcGhvdG9uczIwMjU='),
+      name: 'Valued Client',
+      photos: [
+        'assets/wedding_bride_bamboo.jpg',
+        'assets/wedding_intimate_bw.jpg',
+        'assets/couple_beach.jpg',
+        'assets/wedding_stage_dance.jpg'
+      ]
+    },
+    'rahul': {
+      code: _d('YWRpdGkyMDI1'),
+      name: 'Aditi & Rahul',
+      photos: [
+        'assets/wedding_bride_bamboo.jpg',
+        'assets/hero_portrait_1.jpg',
+        'assets/couple_editorial_urban.jpg',
+        'assets/wedding_stage_dance.jpg'
+      ]
+    },
+    'raj': {
+      code: _d('YWlzaGEyMDI0'),
+      name: 'Aisha & Raj',
+      photos: [
+        'assets/wedding_intimate_bw.jpg',
+        'assets/hero_portrait_3.jpg',
+        'assets/couple_beach.jpg',
+        'assets/wedding_bride_bamboo.jpg'
+      ]
+    },
+    'arjun': {
+      code: _d('cml5YTIwMjU='),
+      name: 'Riya & Arjun',
+      photos: [
+        'assets/couple_beach.jpg',
+        'assets/hero_portrait_2.jpg',
+        'assets/wedding_intimate_bw.jpg',
+        'assets/wedding_stage_dance.jpg'
+      ]
+    }
+  };
+
+  // Blob-based download — works cross-origin after deployment (unlike the plain `download` attribute)
+  window._wpDownload = async function(src) {
+    try {
+      const res = await fetch(src);
+      const blob = await res.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = src.split('/').pop() || 'photo.jpg';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(blobUrl); }, 200);
+    } catch { window.open(src, '_blank'); }
+  };
+
+  // Fully resets the modal back to login state (fixes: reopening shows previous client's gallery)
+  function resetGalleryModal() {
+    galleryForm.style.display = '';
+    gallerySuccess.classList.remove('active');
+    galleryUsername.value = '';
+    galleryInput.value = '';
+    galleryError.textContent = '';
+    galleryUsername.classList.remove('error');
+    galleryInput.classList.remove('error');
+  }
+
+  const openGalleryBtn = document.getElementById('open-gallery-modal');
+  if (openGalleryBtn && galleryModal) {
+    openGalleryBtn.addEventListener('click', e => {
+      e.preventDefault();
+      galleryModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => galleryUsername.focus(), 300);
+    });
+
+    const closeModal = () => {
+      galleryModal.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(resetGalleryModal, 380); // reset after close animation completes
+    };
+
+    document.querySelector('.gallery-modal-close').addEventListener('click', closeModal);
+    galleryModal.addEventListener('click', e => {
+      if (e.target === galleryModal) closeModal();
+    });
+
+    // Logout / back-to-login button inside the success view
+    const logoutBtn = document.getElementById('gallery-logout');
+    if (logoutBtn) logoutBtn.addEventListener('click', resetGalleryModal);
+
+    const attemptUnlock = () => {
+      const userVal = galleryUsername.value.trim().toLowerCase();
+      const passVal = galleryInput.value.trim();
+      // Dismiss mobile keyboard immediately
+      galleryUsername.blur();
+      galleryInput.blur();
+
+      const targetKey = userVal || 'default';
+      const matchedClient = (CLIENT_CREDENTIALS[targetKey] && CLIENT_CREDENTIALS[targetKey].code === passVal)
+        ? CLIENT_CREDENTIALS[targetKey]
+        : null;
+
+      if (matchedClient) {
+        document.getElementById('gallery-welcome').textContent = `✦ Welcome, ${matchedClient.name}`;
+        const photoContainer = document.getElementById('gallery-photos');
+        photoContainer.innerHTML = matchedClient.photos.map(p => `
+          <div class="gallery-modal-photo-wrapper">
+            <img src="${p}" alt="Private gallery preview" loading="lazy">
+            <a href="#" onclick="event.preventDefault(); window._wpDownload('${p}')" class="gallery-modal-download" title="Download photo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        `).join('');
+        galleryForm.style.display = 'none';
+        gallerySuccess.classList.add('active');
+      } else {
+        galleryUsername.classList.add('error');
+        galleryInput.classList.add('error');
+        galleryError.textContent = 'Invalid username or access code. Please check and try again.';
+        setTimeout(() => {
+          galleryUsername.classList.remove('error');
+          galleryInput.classList.remove('error');
+          galleryError.textContent = '';
+        }, 2000);
+      }
+    };
+
+    document.getElementById('gallery-submit').addEventListener('click', attemptUnlock);
+    galleryUsername.addEventListener('keydown', e => { if (e.key === 'Enter') attemptUnlock(); });
+    galleryInput.addEventListener('keydown', e => { if (e.key === 'Enter') attemptUnlock(); });
+  }
+
+  // ─── Scroll Reveal ───
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), +delay);
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // ─── Page Transition on Internal Links ───
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+
+      const panels = document.querySelectorAll('.page-transition .panel');
+      panels.forEach((p, i) => {
+        p.style.transition = `transform 0.4s ${i * 0.06}s cubic-bezier(0.7, 0, 0.3, 1)`;
+        p.style.transformOrigin = 'bottom';
+        p.style.transform = 'scaleY(1)';
+      });
+
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'auto' });
+        panels.forEach((p, i) => {
+          p.style.transformOrigin = 'top';
+          p.style.transition = `transform 0.4s ${i * 0.06}s cubic-bezier(0.7, 0, 0.3, 1)`;
+          p.style.transform = 'scaleY(0)';
+        });
+      }, 500);
+    });
+  });
+
+  // ─── Counter Animation ───
+  const statEls = document.querySelectorAll('.stat h3');
+  const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.textContent);
+        const suffix = el.textContent.replace(/[0-9]/g, '');
+        let current = 0;
+        const inc = target / 60;
+        const timer = setInterval(() => {
+          current += inc;
+          if (current >= target) {
+            el.textContent = target + suffix;
+            clearInterval(timer);
+          } else {
+            el.textContent = Math.floor(current) + suffix;
+          }
+        }, 25);
+        counterObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => counterObs.observe(el));
+
+  // ─── Form Submission ───
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Inquiry Sent!';
+    btn.style.background = '#2d7d46';
+    setTimeout(() => {
+      btn.textContent = 'Send Inquiry';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  });
+
+  // ─── Smooth parallax on hero ───
+  window.addEventListener('scroll', () => {
+    const hero = document.getElementById('hero');
+    const st = window.scrollY;
+    if (st < window.innerHeight) {
+      hero.querySelector('.hero-content').style.transform = `translateY(${st * 0.3}px)`;
+      hero.querySelector('.hero-content').style.opacity = 1 - st / (window.innerHeight * 0.8);
+    }
+  }, { passive: true });
+
+  // ─── Auto Copyright Year ───
+  const footerYear = document.getElementById('footer-year');
+  if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
