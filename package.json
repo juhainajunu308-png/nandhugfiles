@@ -1,0 +1,27 @@
+{
+  "name": "weavedphotons",
+  "version": "1.0.0",
+  "description": "Weavedphotons — Cinematic Wedding Photography Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juhainajunu308-png/nandhugfiles.git"
+  },
+  "keywords": [
+    "photography",
+    "wedding",
+    "portfolio"
+  ],
+  "author": "Weavedphotons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juhainajunu308-png/nandhugfiles/issues"
+  },
+  "homepage": "https://github.com/juhainajunu308-png/nandhugfiles#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
