@@ -439,25 +439,89 @@
   </div>
 </section>
 
-<!-- ═══ Lightroom Slideshow ═══ -->
+<!-- ═══ The Dark Room — 10-Album Cinematic Switcher ═══ -->
 <section id="lightroom-showcase">
   <div class="section-header reveal">
     <div class="section-divider"></div>
-    <p class="section-tag">Adobe Lightroom</p>
-    <h2 class="section-title">Featured Work</h2>
-    <p class="section-desc">A curated slideshow of our finest captures — raw moments, cinematic light, and timeless emotion.</p>
+    <p class="section-tag">Past Works</p>
+    <h2 class="section-title">The Dark Room</h2>
+    <p class="section-desc">Ten albums. Ten love stories. Each one a world of its own — select a chapter to enter.</p>
   </div>
-  <div class="lr-embed-wrap reveal-scale">
-    <div class="lr_embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
-      <iframe
-        src="https://lightroom.adobe.com/embed/shares/e6eb043fa52841d0bdde02d92e4feec6/slideshow?background_color=%230a0a0a&color=%23c9a84c"
-        frameborder="0"
-        allowfullscreen
-        loading="lazy"
-        title="Weavedphotons — Featured Wedding Slideshow"
-        style="width:100%;height:100%;position:absolute;top:0;left:0;border-radius:12px;">
-      </iframe>
+
+  <div class="darkroom-layout reveal-scale">
+
+    <!-- Film-strip sidebar -->
+    <div class="darkroom-sidebar">
+      <div class="darkroom-hud">
+        <span class="hud-label">NOW VIEWING</span>
+        <span class="hud-num" id="hud-num">01 / 10</span>
+      </div>
+      <div class="album-tabs" id="album-tabs">
+        <button class="album-tab active" data-idx="0" data-share="e6eb043fa52841d0bdde02d92e4feec6" data-name="Golden Hour">
+          <span class="tab-num">01</span><span class="tab-name">Golden Hour</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="1" data-share="ea0ceaa5bb624469b8312fae2186996b" data-name="Coastal Romance">
+          <span class="tab-num">02</span><span class="tab-name">Coastal Romance</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="2" data-share="e81c764fc8d4422ab3550326cdc1afb6" data-name="Monochrome Intimacy">
+          <span class="tab-num">03</span><span class="tab-name">Monochrome Intimacy</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="3" data-share="16a42dc92cde42eabb6dacbaccf02816" data-name="Grand Reception">
+          <span class="tab-num">04</span><span class="tab-name">Grand Reception</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="4" data-share="651dc9dccba44733996f7b99f77479ae" data-name="Fine Art Portraits">
+          <span class="tab-num">05</span><span class="tab-name">Fine Art Portraits</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="5" data-share="92347c2c3f2c4af7a83277e78c989c78" data-name="Sunset Editorial">
+          <span class="tab-num">06</span><span class="tab-name">Sunset Editorial</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="6" data-share="07ffebe0cac64f3a82b72688b49f87c5" data-name="Sacred Ceremony">
+          <span class="tab-num">07</span><span class="tab-name">Sacred Ceremony</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="7" data-share="fca7ccd8fb804f13b3bdea29fbbce05f" data-name="Urban Love Story">
+          <span class="tab-num">08</span><span class="tab-name">Urban Love Story</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="8" data-share="ce9a7ad2e53d492baa6530bb65851d5f" data-name="Destination Wedding">
+          <span class="tab-num">09</span><span class="tab-name">Destination Wedding</span><span class="tab-arrow">→</span>
+        </button>
+        <button class="album-tab" data-idx="9" data-share="23ff0d5ee9464fb69a33373daab12cd9" data-name="Candid Moments">
+          <span class="tab-num">10</span><span class="tab-name">Candid Moments</span><span class="tab-arrow">→</span>
+        </button>
+      </div>
+      <!-- Prev / Next nav -->
+      <div class="darkroom-nav">
+        <button class="dr-nav-btn" id="dr-prev" aria-label="Previous album">← Prev</button>
+        <button class="dr-nav-btn" id="dr-next" aria-label="Next album">Next →</button>
+      </div>
     </div>
+
+    <!-- Viewer panel -->
+    <div class="darkroom-viewer">
+      <div class="dr-grain"></div>
+      <div class="dr-vignette"></div>
+      <!-- Cinema slate HUD -->
+      <div class="dr-slate">
+        <div class="dr-slate-left">
+          <span class="dr-slate-brand">WEAVEDPHOTONS</span>
+          <span class="dr-slate-name" id="dr-album-name">Golden Hour</span>
+        </div>
+        <div class="dr-slate-right">
+          <span class="dr-slate-tag">▶ PLAYING</span>
+        </div>
+      </div>
+      <!-- iframe wrapper -->
+      <div class="dr-frame-wrap" id="dr-frame-wrap">
+        <iframe
+          id="dr-iframe"
+          src="https://lightroom.adobe.com/embed/shares/e6eb043fa52841d0bdde02d92e4feec6/slideshow?background_color=%230a0a0a&color=%23c9a84c"
+          frameborder="0"
+          allowfullscreen
+          title="Weavedphotons — Golden Hour"
+          loading="eager">
+        </iframe>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1184,6 +1248,53 @@
   // ─── Auto Copyright Year ───
   const footerYear = document.getElementById('footer-year');
   if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+  // ─── The Dark Room — Album Switcher ───
+  const drIframe   = document.getElementById('dr-iframe');
+  const drName     = document.getElementById('dr-album-name');
+  const hudNum     = document.getElementById('hud-num');
+  const drWrap     = document.getElementById('dr-frame-wrap');
+  const tabs       = document.querySelectorAll('.album-tab');
+  const prevBtn    = document.getElementById('dr-prev');
+  const nextBtn    = document.getElementById('dr-next');
+  let   drActive   = 0;
+  const TOTAL      = tabs.length;
+
+  function switchAlbum(idx) {
+    if (idx === drActive) return;
+    tabs[drActive].classList.remove('active');
+    drActive = (idx + TOTAL) % TOTAL;
+    tabs[drActive].classList.add('active');
+
+    const share = tabs[drActive].dataset.share;
+    const name  = tabs[drActive].dataset.name;
+    const num   = String(drActive + 1).padStart(2, '0');
+
+    // Crossfade
+    drWrap.style.opacity = '0';
+    drWrap.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      drIframe.src = `https://lightroom.adobe.com/embed/shares/${share}/slideshow?background_color=%230a0a0a&color=%23c9a84c`;
+      drIframe.title = `Weavedphotons — ${name}`;
+      drName.textContent = name;
+      hudNum.textContent = `${num} / ${String(TOTAL).padStart(2,'0')}`;
+      drWrap.style.opacity = '1';
+      drWrap.style.transform = 'scale(1)';
+    }, 350);
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => switchAlbum(+tab.dataset.idx));
+  });
+
+  prevBtn?.addEventListener('click', () => switchAlbum(drActive - 1));
+  nextBtn?.addEventListener('click', () => switchAlbum(drActive + 1));
+
+  // Keyboard arrow support when hovering over Dark Room
+  document.getElementById('lightroom-showcase')?.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); switchAlbum(drActive + 1); }
+    if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  { e.preventDefault(); switchAlbum(drActive - 1); }
+  });
 
 })();
 </script>
